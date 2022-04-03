@@ -7,3 +7,7 @@ services:
       dockerfile: node.dockerfile
     ports: 
       - "4000:4000"
+    volumes:
+      # This is needed to run nodemon through the container
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules # Remove this if you have pure JS dependencies
