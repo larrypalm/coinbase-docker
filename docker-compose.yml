@@ -11,3 +11,15 @@ services:
       # This is needed to run nodemon through the container
       - ./server:/usr/src/app
       - /usr/src/app/node_modules # Remove this if you have pure JS dependencies
+  react_frontend:
+    container_name: react_frontend
+    build: 
+      context: ./frontend
+      dockerfile: frontend.dockerfile
+    ports: 
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - ./frontend/.env
