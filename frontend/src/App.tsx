@@ -25,6 +25,11 @@ function App() {
 				>
 					HEJSNA
 				</button>
+				<a 
+					href=""
+				>
+					Connect to Coinbase
+				</a>
 			</header>
 		</div>
   	);
