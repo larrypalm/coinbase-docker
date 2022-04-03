@@ -11,8 +11,11 @@ services:
       # This is needed to run nodemon through the container
       - ./server:/usr/src/app
       - /usr/src/app/node_modules # Remove this if you have pure JS dependencies
+    networks:
+      - mern-app
   react_frontend:
     container_name: react_frontend
+    stdin_open: true
     build: 
       context: ./frontend
       dockerfile: frontend.dockerfile
@@ -23,3 +26,9 @@ services:
       - /usr/src/app/node_modules
     env_file:
       - ./frontend/.env
+    networks:
+      - mern-app
+
+networks:
+  mern-app:
+    driver: bridge
