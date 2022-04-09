@@ -27,7 +27,7 @@ services:
       - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
     env_file:
-      - ./frontend/.env
+      - ./server/.env
     networks:
       - mern-app
   # web-server:
@@ -37,9 +37,11 @@ services:
   #     dockerfile: web-server.dockerfile
   #   restart: unless-stopped
   #   ports:
-  #     - "80:80"
+  #     - "8080:8080"
   #   volumes:
   #     - ./dockerfiles/nginx/default.conf:/etc/nginx/default.conf
+  #   networks:
+  #     - mern-app
   #   depends_on:
   #     - api
   #     - react_frontend
